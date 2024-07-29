@@ -3,6 +3,7 @@ import Layout from "../Components/Layout";
 import HomeScreen from "../Pages/HomeScreen";
 import Register from "../Auth/Register";
 import Sigin from "../Auth/Sigin";
+import UserDashoard from "../UserDasbord/UserDashoard";
 
 
 
@@ -27,5 +28,10 @@ export const mainApp = createBrowserRouter([
   {
     path: "/sigin",
     element: <Sigin />,
+  },
+
+  {
+    path: "/dashboard",
+    element: <UserDashoard />,
   },
 ]);

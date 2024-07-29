@@ -1,10 +1,12 @@
 import img from "../assets/bgguitar.png";
 import { MdEmail, MdPerson2 } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
 const Sigin = () => {
   return (
     <div className="bg-[#091227] h-[100vh] w-full flex justify-center items-center">
-      <div className="w-[1000px] h-[85%] md:h-[80%] lg:h-[90%] bg-[rgb(129, 129, 39)] rounded-[10px] grid grid-cols-1 md:grid-cols-5 overflow-hidden shadow-md">
+      <div className="w-[1000px] h-[100%] md:h-[80%] lg:h-[90%] bg-[rgb(129, 129, 39)] rounded-[10px] grid grid-cols-1 md:grid-cols-5 overflow-hidden shadow-md">
         <div className="hidden md:flex md:col-span-2">
           <img src={img} alt="" />
         </div>
@@ -22,6 +24,9 @@ const Sigin = () => {
                     className="flex-1 text-[14px] font-semibold italic outline-none h-full bg-slate-200"
                   />
                 </div>
+                <div className="text-[11px] font-[700] mt-1 ml-[315px] text-red-600">
+                  Email must be filled
+                </div>
               </div>
               <div className="mt-[20px]">
                 <div className="text-[11px] font-[600]">Password</div>
@@ -33,11 +38,14 @@ const Sigin = () => {
                     className="flex-1 text-[14px] font-semibold italic outline-none h-full bg-slate-200"
                   />
                 </div>
+                <div className="text-[11px] ml-[330px] text-red-600 font-[700]">
+                  Password Empty
+                </div>
               </div>
 
               <div className="w-full flex justify-center items-center mt-[25px]">
                 {" "}
-                <button className="p-1 rounded-md px-4 bg-blue-950 hover:bg-[pink] duration-300 transition-all hover:text-[black] text-white">
+                <button className="p-1 rounded-md px-4 bg-blue-950 hover:bg-[white] hover:border hover:text-blue-950 duration-300 transition-all text-white">
                   Sign-In
                 </button>
               </div>
@@ -56,8 +64,19 @@ const Sigin = () => {
                 <div className="mr-[5px]">OR</div>
                 <div className="h-[1px] w-[100px] bg-[grey]" />
               </div>
-              <div className="flex md:w-full md:justify-around mt-[20px] text-[15px] justify-between gap-1">
-                
+              <div className="flex md:w-full md:justify-around mt-[20px] text-[15px] justify-around gap-1">
+                <div className="text-[10px] italic font-semibold text-blue-950 border p-2 rounded-md flex cursor-pointer">
+                  <div className="text-[16px] mr-1">
+                    <FcGoogle />
+                  </div>
+                  <div className="text-[13px]">Google</div>
+                </div>
+                <div className="text-[10px] italic font-semibold text-blue-950 flex border justify-center items-center rounded-md p-1 cursor-pointer">
+                  <div className="text-[16px] mr-1">
+                    <FaFacebook />
+                  </div>
+                  <div className="text-[13px]">Facebook</div>
+                </div>
               </div>
             </div>
           </div>
