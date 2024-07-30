@@ -31,7 +31,7 @@ export const mainApp = createBrowserRouter([
   },
 
   {
-    path: "/dashboard",
+    path: "/userdashboard",
     element: <UserDashoard />,
   },
 ]);
