@@ -26,7 +26,7 @@ export const mainApp = createBrowserRouter([
   },
 
   {
-    path: "/sigin",
+    path: "/signin",
     element: <Sigin />,
   },
 

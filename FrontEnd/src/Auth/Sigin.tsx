@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import * as yup from "yup"
+import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { signInUser } from "../api/AuthApi";
@@ -12,48 +12,41 @@ import { login } from "../Global/reduxState";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
+// Define the validation schema using yup
+const schema = yup.object().shape({
+  email: yup.string().email("Invalid email format").required("Email is required"),
+  password: yup.string().required("Password is required")
+});
 
+const SignIn = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  
+  const [loading, setLoading] = useState<boolean>(false);
 
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(schema)
+  });
 
-
-
-const Sigin = () => {
- 
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-
-  const [state, setState] = useState<string>("")
-  const [password, setPassword] = useState<string>("")
-  const [loading, setLoading] = useState<boolean>(false)
-
-
-  const handleSubmit = () =>{
-    setLoading(true)
-    const val = { email: state, password: password };
-
-    signInUser(val).then((res) =>{
-      if(res.status === 201) {
-        dispatch(login(res))
-        toast.success("login Successfully")
-        setLoading(false)
+  const onSubmit = (data: { email: string, password: string }) => {
+    setLoading(true);
+    signInUser(data).then((res) => {
+      if (res.status === 201) {
+        dispatch(login(res));
+        toast.success("Login Successfully");
+        setLoading(false);
         navigate("/userdashboard");
 
-          // {
-          //   !loading && navigate("/userdashboard");
-          // }
-
         const x = setTimeout(() => {
-          window.location.reload()
-          clearTimeout(x)
-        }, 10)
-      } else{
-        setLoading(false)
-        toast.error(`${res?.response?.data?.message}`)
+          window.location.reload();
+          clearTimeout(x);
+        }, 10);
+      } else {
+        setLoading(false);
+        toast.error(`${res?.response?.data?.message}`);
       }
-    })
-  }
-
-
+    });
+  };
 
   return (
     <div className="bg-[#091227] h-[100vh] w-full flex justify-center items-center">
@@ -65,53 +58,50 @@ const Sigin = () => {
         <div className="md:col-span-3 flex justify-center items-center">
           <div className="w-[90%] border h-[90%] flex justify-center flex-col items-center md:h-[90%] shadow-md rounded-md bg-white">
             <div className="font-bold">Sign In Here</div>
-            <form action="" className="w-[80%] h-[70%]">
+            <form className="w-[80%] h-[70%]" onSubmit={handleSubmit(onSubmit)}>
               <div className="mt-[20px]">
                 <div className="text-[11px] font-[600]">Email</div>
-                <div className="p-1 flex w-[100%] border h-[35px] rounded justify-center items-center bg-slate-200">
+                <div className="overflow-hidden  p-1 flex w-[100%] border h-[35px] rounded justify-center items-center bg-slate-200">
                   <MdEmail className="text-[18px] mr-[5px]" />
                   <input
                     type="email"
-                    required
-                    onChange={(e: any) => {
-                      setState(e.target.value);
-                    }}
+                    {...register("email")}
                     placeholder="Enter your email here"
-                    className="flex-1 text-[14px] font-semibold italic outline-none h-full bg-slate-200"
+                    className="flex-1 text-[11px] font-semibold italic outline-none h-full bg-slate-200"
                   />
                 </div>
-                {/* <div className="text-[11px] font-[700] mt-1 ml-[315px] text-red-600">
-                    Email must be filled
-                  </div> */}
+                {errors.email && (
+                  <div className="text-[11px] font-[700] mt-1 text-red-600">
+                    {errors.email.message}
+                  </div>
+                )}
               </div>
               <div className="mt-[20px]">
                 <div className="text-[11px] font-[600]">Password</div>
-                <div className="p-1 flex w-[100%] border h-[35px] rounded justify-center items-center bg-slate-200">
+                <div className="overflow-hidden p-1 flex w-[100%] border h-[35px] rounded justify-center items-center bg-slate-200">
                   <MdPerson2 className="text-[18px] mr-[5px]" />
                   <input
-                    type="text"
+                    type="password"
+                    {...register("password")}
                     placeholder="Enter your password here"
-                    className="flex-1 text-[14px] font-semibold italic outline-none h-full bg-slate-200"
-                    value={password}
-                    onChange={(e: any) => {
-                      setPassword(e.target.value);
-                    }}
-                    required
+                    className="flex-1 text-[11px] font-semibold italic outline-none h-full bg-slate-200"
                   />
                 </div>
-                {/* <div className="text-[11px] ml-[330px] text-red-600 font-[700]">
-                    Password Empty
-                  </div> */}
+                {errors.password && (
+                  <div className="text-[11px] font-[700] mt-1 text-red-600">
+                    {errors.password.message}
+                  </div>
+                )}
               </div>
 
               <div className="w-full flex justify-center items-center mt-[25px]">
-                {" "}
                 <button
                   className="p-1 rounded-md px-4 bg-blue-950 hover:bg-[white] hover:border hover:text-blue-950 duration-300 transition-all text-white hover:font-[800]"
                   type="submit"
-                  onClick={handleSubmit}
+                  disabled={loading}
+                  onClick={signInUser}
                 >
-                  Sign-In
+                  {loading ? "Signing In..." : "Sign-In"}
                 </button>
               </div>
               <div className="mt-[15px] flex">
@@ -151,4 +141,4 @@ const Sigin = () => {
   );
 };
 
-export default Sigin;
+export default SignIn;

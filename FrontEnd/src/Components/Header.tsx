@@ -32,8 +32,8 @@ const Header = () => {
     <div className="w-full h-[60px] bg-[#091227] flex justify-center items-center">
       <div className="w-[95%] h-full flex justify-between items-center">
         <div className="flex w-[15%] h-full items-center text-[white]">
-          <div className="font-[700] text-[30px]">Bright</div>
-          <div className="font-[700] text-[30px]">
+          <div className="font-[700] text-[21px] md:text-[30px]">Bright</div>
+          <div className="font-[700] text-[21px] md:text-[30px]">
             <MdOutlinePiano />
           </div>
         </div>
@@ -96,38 +96,38 @@ const Header = () => {
               </div>
               <div className="mt-[30px] flex justify-center items-center font-[700]">
                 <Link to="/Register">
-                  <button className="xl:block font-[700] border p-2 rounded-md bg-blue-900 text-white  hover:bg-white hover:text-blue-950 duration-300 transition-all">
+                  <button className="text-[10px] xl:block font-[700] border p-2 rounded-md bg-blue-900 text-white  hover:bg-white hover:text-blue-950 duration-300 transition-all">
                     Register
                   </button>
                 </Link>
                 <Link to="/sigin">
-                  <button className="xl:block font-[700] border p-2 rounded-md bg-blue-900 text-white  hover:bg-white hover:text-blue-950 duration-300 transition-all ml-[10px]">
-                    Sign-In
+                  <button className="text-[12px] xl:block font-[700] border p-2 rounded-md bg-blue-900 text-white  hover:bg-white hover:text-blue-950 duration-300 transition-all ml-[10px]">
+                    login
                   </button>
                 </Link>
               </div>
 
               <Link to="/aboutUs">
                 <div className="mt-[30px] flex justify-between items-center font-[700] p-2 hover:bg-white rounded-[20px] cursor-pointer transition-all duration-300">
-                  <p>About Us</p>
-                  <BsCalendarEvent className="text-[25px] text-blue-950" />
+                  <p className="text-[11px]">About Us</p>
+                  <BsCalendarEvent className="text-[19px] text-blue-950" />
                 </div>
               </Link>
               <div className="mt-[30px] flex justify-between items-center font-[700] p-2 hover:bg-white rounded-[20px] cursor-pointer transition-all duration-300">
-                <p>Event Single</p>
-                <SlEvent className="text-[25px] text-blue-950" />
+                <p className="text-[11px]">Event Single</p>
+                <SlEvent className="text-[19px] text-blue-950" />
               </div>
               <div className="mt-[30px] flex justify-between items-center font-[700] p-2 hover:bg-white rounded-[20px] cursor-pointer transition-all duration-300">
-                <p>Schedule</p>
-                <GrSchedule className="text-[25px] text-blue-950" />
+                <p className="text-[11px]">Schedule</p>
+                <GrSchedule className="text-[19px] text-blue-950" />
               </div>
               <div className="mt-[30px] flex justify-between items-center font-[700] p-2 hover:bg-white rounded-[20px] cursor-pointer transition-all duration-300">
-                <p>Classes</p>
-                <SiGoogleclassroom className=" text-[25px] text-blue-950" />
+                <p className="text-[11px]">Classes</p>
+                <SiGoogleclassroom className=" text-[19px] text-blue-950" />
               </div>
               <div className="mt-[30px] flex justify-between items-center font-[700] p-2 hover:bg-white rounded-[20px] cursor-pointer transition-all duration-300">
-                <p>Teachers</p>
-                <GiTeacher className="text-[25px] text-blue-950" />
+                <p className="text-[11px]">Teachers</p>
+                <GiTeacher className="text-[20px] text-blue-950" />
               </div>
             </div>
           </div>

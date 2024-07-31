@@ -2,7 +2,9 @@ import React from 'react'
 
 const UserDashoard = () => {
   return (
-    <div>UserDashoard</div>
+    <div className='font-[700]'>
+      UserDashboard
+    </div>
   )
 }
 

@@ -7,7 +7,7 @@ const initialState = {
 };
 
 const reduxState = createSlice({
-  name: "School-Temp",
+  name: "Bright-keys",
   initialState,
   reducers: {
     login: (state: any, { payload }) => {
@@ -16,6 +16,7 @@ const reduxState = createSlice({
     logout: (state: any) => {
       state.user = null;
     },
+
     changeToggle: (state: any, { payload }) => {
       state.toggle = payload;
     },
