@@ -54,7 +54,7 @@ const Register = () => {
         // dispatch(register(res));
         toast.success("Account Created Successfully");
         setLoading(false);
-        navigate("/userdashboard");
+        navigate("/registercard");
       } else {
         setLoading(false);
         toast.error(`${res?.response?.data?.message}`);

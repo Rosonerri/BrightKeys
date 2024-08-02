@@ -3,7 +3,8 @@ import Layout from "../Components/Layout";
 import HomeScreen from "../Pages/HomeScreen";
 import Register from "../Auth/Register";
 import Sigin from "../Auth/Sigin";
-import UserDashoard from "../UserDasbord/UserDashoard";
+import UserDashoard from "../UserDasboard/UserDashoard";
+import RegisterCard from "../Auth/RegisterCard";
 
 
 
@@ -33,5 +34,10 @@ export const mainApp = createBrowserRouter([
   {
     path: "/userdashboard",
     element: <UserDashoard />,
+  },
+
+  {
+    path: "/registercard",
+    element: <RegisterCard />,
   },
 ]);

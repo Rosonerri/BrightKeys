@@ -32,7 +32,7 @@ const SignIn = () => {
     setLoading(true);
     signInUser(data).then((res) => {
       if (res.status === 201) {
-        dispatch(login(res));
+        // dispatch(login(res));
         toast.success("Login Successfully");
         setLoading(false);
         navigate("/userdashboard");

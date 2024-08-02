@@ -1,4 +1,4 @@
-// server.ts or app.ts
+console.clear()
 
 import express, { Application } from "express";
 import cors from "cors";
@@ -8,33 +8,33 @@ import { dbConfig } from "./utils/dbConfig";
 
 dotenv.config();
 
-const port = parseInt(process.env.PORT!, 10) || 2244; // Default to 2244 if PORT is not defined
+const port = parseInt(process.env.PORT!, 10) || 2244; 
 const app: Application = express();
 
-// Middleware setup
+
 app.use(express.json());
 app.use(
   cors({
-    origin: process.env.APP_URL, // Ensure this is correctly set in your .env file
+    origin: process.env.APP_URL,
   })
 );
 
-// Initialize main application routes and logic
+
 mainApp(app);
 
-// Start the server
+
 const server = app.listen(port, () => {
   console.log(`App listening on port: ${port}`);
-  dbConfig(); // Initialize database configuration
+  dbConfig(); 
 });
 
-// Graceful shutdown on uncaught exceptions
+
 process.on("uncaughtException", (error: Error) => {
   console.error("Uncaught Exception:", error);
   process.exit(1);
 });
 
-// Graceful shutdown on unhandled promise rejections
+
 process.on("unhandledRejection", (reason: any) => {
   console.error("Unhandled Rejection:", reason);
   server.close(() => {
