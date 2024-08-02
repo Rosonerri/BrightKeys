@@ -100,7 +100,7 @@ const Header = () => {
                     Register
                   </button>
                 </Link>
-                <Link to="/sigin">
+                <Link to="/signin">
                   <button className="text-[12px] xl:block font-[700] border p-2 rounded-md bg-blue-900 text-white  hover:bg-white hover:text-blue-950 duration-300 transition-all ml-[10px]">
                     login
                   </button>
