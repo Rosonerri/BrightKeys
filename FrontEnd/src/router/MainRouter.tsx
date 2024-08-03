@@ -5,6 +5,7 @@ import Register from "../Auth/Register";
 import Sigin from "../Auth/Sigin";
 import UserDashoard from "../UserDasboard/UserDashoard";
 import RegisterCard from "../Auth/RegisterCard";
+import Layout2 from "../Static/Layout2";
 
 
 
@@ -19,6 +20,17 @@ export const mainApp = createBrowserRouter([
         element: <HomeScreen />,
       },
     ],
+  },
+
+  {
+    path: "/userdashboard",
+    element: <Layout2 />,
+    children: [
+      {
+        index: true,
+        element: <UserDashoard />
+      }
+    ]
   },
 
   {

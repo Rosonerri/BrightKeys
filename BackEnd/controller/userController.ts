@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import userModel from "../model/userModel";
+import { verifiedEmail } from "../utils/email";
 
 export const createUser = async (req: Request, res: Response) => {
   try {
@@ -14,6 +15,8 @@ export const createUser = async (req: Request, res: Response) => {
       email,
       password: hashed,
     });
+
+    verifiedEmail(user)
 
     return res.status(201).json({
       message: "User Created Successfully",
